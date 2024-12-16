@@ -5,19 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>#Ing</title>
     <link rel="stylesheet" href="./style.css">
+    <script src="https://cdn.jsdelivr.net/npm/js-md2@1.1.2/src/md2.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-sha1@0.6.0/src/sha1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/js-sha256@0.9.0/src/sha256.min.js"></script>
 </head>
-<body>
-    <section class="fixed flex items-center justify-center w-full h-14">
-        <div class="w-[60%] h-full bg-red-700 flex items-center justify-around rounded-2xl">
+<body class="bg-black bg-cover" id="Home" style="background-image: url('/assests/Group\ 469317.svg') " >
+    <section class=" flex items-center justify-center h-14 m-4">
+        <div class="w-[60%] h-full bg-red-700 flex items-center justify-around rounded-2xl ">
             <div class=" flex items-center justify-center">
                 <img src="/assests/logo.svg" class="w-20">
             </div>
-            <div class="">
-                <a href="">Home</a>
-                <a href="">Function</a>
-                <a href="">About Us</a>
+            <div class="flex items-start justify-between w-1/4">
+                <a href="#Home" class="font-bold text-l">Home</a>
+                <a href="#section-1" class="font-bold text-l">Function</a>
+                <a href="#section-3" class="font-bold text-l">About Us</a>
             </div>
+        </div> 
+    </section>
+    <section class=" m-auto flex items-center justify-center" id="section-1">
+        <div class="container bg-white w-full flex-col items-center justify-center">
+            <h1 class="text-center text-5xl font-bold font-sans py-5">Hash Generator 🔑</h1>
+            <div class="w-full flex items-center justify-center py-5">
+                <textarea id="inputText" rows="4" placeholder="Enter your text here..." class="w-1/2 resize-none"></textarea>
+            </div>
+            
+            <select id="hashType">
+              <option value="md5">MD5</option>
+              <option value="sha1">SHA1</option>
+              <option value="sha256">SHA256</option>
+            </select>
+            <button id="generateButton" class="bg-red-700">Generate Hash</button>
+            <div id="output" class="output mt-[20px] p-[10px] bg-green-700"> </div>
+          </div>
+    </section>
+    <section class=" w-full flex justify-center items-center " id="section-3">
+        <div class="w-1/2 bg-white text-left rounded-xl py-5 px-5">
+            <h2 class="font-bold text-5xl py-2 font-serif text-center">About us</h2>
+            <p class="font-bold ">🌐 In today's digital world, data often needs to be encoded for 🔒 secure storage or 📤 transmission. This website offers a 🖥️ user-friendly interface to: <br>
+                ✨ Encode and decode data using formats like Base64 and Base32 <br>
+                🔑 Effortlessly generate hash values <br>
+                <br>
+                Simplify your 🧑‍💻 encoding, decoding, and hashing tasks—all in one convenient place! 🚀<br>
+            </p>
         </div>
     </section>
+
+    <script>
+        // DOM elements
+        const inputText = document.getElementById('inputText');
+        const hashType = document.getElementById('hashType');
+        const generateButton = document.getElementById('generateButton');
+        const output = document.getElementById('output');
+      
+        // Generate hash on button click
+        generateButton.addEventListener('click', () => {
+          const text = inputText.value.trim();
+          const type = hashType.value;
+      
+          if (!text) {
+            output.textContent = 'Please enter text to hash!';
+            return;
+          }
+      
+          let hashValue;
+          switch (type) {
+            case 'md5':
+              hashValue = md5(text); // Direct MD5 hash
+              break;
+            case 'sha1':
+              hashValue = sha1(text); // Direct SHA1 hash
+              break;
+            case 'sha256':
+              hashValue = sha256(text); // Direct SHA256 hash
+              break;
+            default:
+              hashValue = 'Invalid hash type!';
+          }
+      
+          output.textContent = `Hash (${type.toUpperCase()}): ${hashValue}`;
+        });
+      </script>
 </body>
 </html>

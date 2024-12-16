@@ -23,26 +23,30 @@
             </div>
         </div> 
     </section>
-    <section class=" m-auto flex items-center justify-center" id="section-1">
-        <div class="container bg-white w-full flex-col items-center justify-center">
+    <section class=" m-auto flex items-center justify-center py-10" id="section-1">
+        <div class="container bg-white w-[70%] flex-col items-center justify-center rounded-xl">
             <h1 class="text-center text-5xl font-bold font-sans py-5">Hash Generator 🔑</h1>
             <div class="w-full flex items-center justify-center py-5">
                 <textarea id="inputText" rows="4" placeholder="Enter your text here..." class="w-1/2 resize-none"></textarea>
             </div>
+            <div class=" flex items-center justify-center h-full">
+              <div class="flex items-center justify-around w-[70%] h-[50px] bg-black rounded-xl">
+                <select id="hashType" class="w-1/6 h-[35px] rounded-xl font-bold">
+                  <option value="md5">MD5</option>
+                  <option value="sha1">SHA1</option>
+                  <option value="sha256">SHA256</option>
+                </select>
+                <button id="generateButton" class="bg-red-700 w-1/6 h-[40px] rounded-xl font-bold">Generate Hash</button>
+              </div>
+            </div>
             
-            <select id="hashType">
-              <option value="md5">MD5</option>
-              <option value="sha1">SHA1</option>
-              <option value="sha256">SHA256</option>
-            </select>
-            <button id="generateButton" class="bg-red-700">Generate Hash</button>
-            <div id="output" class="output mt-[20px] p-[10px] bg-green-700"> </div>
+            <div id="output" class="output mt-[20px] p-[10px] bg-red-700"> </div>
           </div>
     </section>
-    <section class=" w-full flex justify-center items-center " id="section-3">
-        <div class="w-1/2 bg-white text-left rounded-xl py-5 px-5">
+    <section class=" w-full] flex justify-center items-center " id="section-3">
+        <div class="w-[70%] bg-white text-left rounded-xl py-5 px-5">
             <h2 class="font-bold text-5xl py-2 font-serif text-center">About us</h2>
-            <p class="font-bold ">🌐 In today's digital world, data often needs to be encoded for 🔒 secure storage or 📤 transmission. This website offers a 🖥️ user-friendly interface to: <br>
+            <p class="font-bold text-2xl ">🌐 In today's digital world, data often needs to be encoded for 🔒 secure storage or 📤 transmission. This website offers a 🖥️ user-friendly interface to: <br>
                 ✨ Encode and decode data using formats like Base64 and Base32 <br>
                 🔑 Effortlessly generate hash values <br>
                 <br>
